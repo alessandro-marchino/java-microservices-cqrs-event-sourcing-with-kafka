@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class AggregateRoot {
 	@Getter
-	private String id;
+	protected String id;
 	@Getter
 	@Setter
 	private int version = -1;
