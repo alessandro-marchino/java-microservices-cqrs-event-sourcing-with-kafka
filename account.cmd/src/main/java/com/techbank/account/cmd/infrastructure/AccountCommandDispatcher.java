@@ -13,7 +13,8 @@ import com.techbank.cqrs.core.infrastructure.CommandDispatcher;
 
 @Service
 public class AccountCommandDispatcher implements CommandDispatcher {
-	private final Map<Class<? extends BaseCommand>, List<CommandHandlerMethod<?>>> ROUTES = new HashMap<>();
+	@SuppressWarnings("rawtypes")
+	private final Map<Class<? extends BaseCommand>, List<CommandHandlerMethod>> ROUTES = new HashMap<>();
 
 	@Override
 	public <T extends BaseCommand> void registerHandler(Class<T> type, CommandHandlerMethod<T> handler) {
@@ -21,6 +22,7 @@ public class AccountCommandDispatcher implements CommandDispatcher {
 		handlers.add(handler);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void send(BaseCommand command) {
 		var handlers = ROUTES.get(command.getClass());
