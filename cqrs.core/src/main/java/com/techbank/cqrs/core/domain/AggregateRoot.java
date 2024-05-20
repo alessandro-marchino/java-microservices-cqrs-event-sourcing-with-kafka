@@ -22,7 +22,7 @@ public abstract class AggregateRoot {
 	public List<BaseEvent> getUncommitedChanges() {
 		return this.changes;
 	}
-	public void makeChangesAsCommitted() {
+	public void markChangesAsCommitted() {
 		this.changes.clear();
 	}
 	protected void applyChange(BaseEvent event, boolean isNewEvent) {
