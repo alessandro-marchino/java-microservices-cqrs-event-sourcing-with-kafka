@@ -59,7 +59,7 @@ public class AccountAggregate extends AggregateRoot {
 			throw new IllegalStateException("The withdraw amount must be greater than zero");
 		}
 		if(this.balance.compareTo(amount) < 0) {
-			throw new IllegalStateException("The withdraw amount must be less than the current balance");
+			throw new IllegalStateException("Withdrawal declined, insufficient funds!");
 		}
 		raiseEvent(FundsWithdrawnEvent.builder()
 				.id(this.id)
