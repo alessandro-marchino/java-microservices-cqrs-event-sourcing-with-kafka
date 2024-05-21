@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -18,7 +19,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Entity
-public class BankAccountEntity extends BaseEntity {
+@EqualsAndHashCode(callSuper = false)
+public class BankAccount extends BaseEntity {
 
 	@Id
 	private String id;

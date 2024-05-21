@@ -5,7 +5,6 @@ spring:
   application:
     name: account.query
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
     hibernate:
       ddl-auto: update
