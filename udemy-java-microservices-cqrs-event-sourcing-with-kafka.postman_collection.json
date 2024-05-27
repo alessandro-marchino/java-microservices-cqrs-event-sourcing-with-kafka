@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "df090ea7-4cf7-4323-9cdf-9ca5964699e1",
+		"name": "udemy/java-microservices-cqrs-event-sourcing-with-kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29911340"
+	},
+	"item": [
+		{
+			"name": "Open account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountHolder\": \"Alex Doe\",\r\n    \"accountType\": \"CURRENT\",\r\n    \"openingBalance\": 150000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/openBankAccount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"openBankAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit funds",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 150.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/depositFunds/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"depositFunds",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "beded672-449e-4846-a1cd-965fcb890caf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw funds",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 15.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/withdrawFunds/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"withdrawFunds",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "beded672-449e-4846-a1cd-965fcb890caf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close account",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/closeAccount/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"closeAccount",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "beded672-449e-4846-a1cd-965fcb890caf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/v1/bankAccountLookup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bankAccountLookup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get account by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/v1/bankAccountLookup/byId/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bankAccountLookup",
+						"byId",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "8e0add1c-7212-4794-b01b-d1bbb550e03f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get account by holder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/v1/bankAccountLookup/byHolder/:holder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bankAccountLookup",
+						"byHolder",
+						":holder"
+					],
+					"variable": [
+						{
+							"key": "holder",
+							"value": "Alex Doe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get accounts with balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/v1/bankAccountLookup/withBalance/:equalityType/:balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bankAccountLookup",
+						"withBalance",
+						":equalityType",
+						":balance"
+					],
+					"variable": [
+						{
+							"key": "equalityType",
+							"value": "GREATER_THAN"
+						},
+						{
+							"key": "balance",
+							"value": "120000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
