@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techbank.account.cmd.api.commands.DepositFundsCommand;
-import com.techbank.account.cmd.api.dto.OpenAccountResponse;
 import com.techbank.account.common.dto.BaseResponse;
 import com.techbank.cqrs.core.infrastructure.CommandDispatcher;
 
