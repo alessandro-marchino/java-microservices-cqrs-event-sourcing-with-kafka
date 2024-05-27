@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class FindAccountsByHolderQuery extends BaseQuery {
+public class FindAccountByHolderQuery extends BaseQuery {
 	private String accountHolder;
 }
