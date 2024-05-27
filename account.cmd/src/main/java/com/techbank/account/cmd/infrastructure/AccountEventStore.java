@@ -3,6 +3,7 @@ package com.techbank.account.cmd.infrastructure;
 import java.time.OffsetDateTime;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.techbank.account.cmd.domain.AccountAggregate;
@@ -21,6 +22,8 @@ import lombok.RequiredArgsConstructor;
 public class AccountEventStore implements EventStore {
 	private final EventStoreRepository eventStoreRepository;
 	private final EventProducer eventProducer;
+	@Value("${spring.kafka.topic}")
+	private String topic;
 
 	@Override
 	public void saveEvents(String aggregateId, Iterable<BaseEvent> events, int expectedVersion) {
@@ -42,7 +45,7 @@ public class AccountEventStore implements EventStore {
 					.build();
 			var persistedEvent = eventStoreRepository.save(eventModel);
 			if(!persistedEvent.getId().isEmpty()) {
-				this.eventProducer.produce(event.getClass().getSimpleName(), event);
+				this.eventProducer.produce(topic, event);
 			}
 		}
 	}

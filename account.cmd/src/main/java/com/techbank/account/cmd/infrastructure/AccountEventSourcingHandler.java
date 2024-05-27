@@ -2,6 +2,7 @@ package com.techbank.account.cmd.infrastructure;
 
 import java.util.Comparator;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.techbank.account.cmd.domain.AccountAggregate;
@@ -18,6 +19,8 @@ import lombok.RequiredArgsConstructor;
 public class AccountEventSourcingHandler implements EventSourcingHandler<AccountAggregate> {
 	private final EventStore eventStore;
 	private final EventProducer eventProducer;
+	@Value("${spring.kafka.topic}")
+	private String topic;
 
 	@Override
 	public void save(AggregateRoot aggregate) {
@@ -47,7 +50,7 @@ public class AccountEventSourcingHandler implements EventSourcingHandler<Account
 			}
 			var events = eventStore.getEvents(aggregateId);
 			for(var event : events) {
-				eventProducer.produce(event.getClass().getSimpleName(), event);
+				eventProducer.produce(topic, event);
 			}
 		}
 	}

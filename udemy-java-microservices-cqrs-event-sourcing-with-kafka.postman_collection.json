@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"accountHolder\": \"Alex Doe\",\r\n    \"accountType\": \"CURRENT\",\r\n    \"openingBalance\": 150000.00\r\n}",
+					"raw": "{\r\n    \"accountHolder\": \"Alex Doe\",\r\n    \"accountType\": \"CURRENT\",\r\n    \"openingBalance\": 100000.00\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"amount\": 150.00\r\n}",
+					"raw": "{\r\n    \"amount\": 1500.00\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -66,7 +66,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "beded672-449e-4846-a1cd-965fcb890caf"
+							"value": "f7cd9353-0122-49e7-8295-7e918a0dc2fd"
 						}
 					]
 				}
@@ -80,7 +80,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"amount\": 15.00\r\n}",
+					"raw": "{\r\n    \"amount\": 150.00\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -103,7 +103,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "beded672-449e-4846-a1cd-965fcb890caf"
+							"value": "f7cd9353-0122-49e7-8295-7e918a0dc2fd"
 						}
 					]
 				}
@@ -131,8 +131,29 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "beded672-449e-4846-a1cd-965fcb890caf"
+							"value": "6bae096b-428d-4e39-ae0c-77bc68d85fc9"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restore read DB",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/restoreReadDB",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"restoreReadDB"
 					]
 				}
 			},

@@ -15,8 +15,10 @@ spring:
     username: techbankRoot
     password: techbankRootPsw
   kafka:
+    topic: BankAccountEvents
     listener:
       ack-mode: manual-immediate
+      poll-timeout: 900000
     consumer:
       bootstrap-servers: localhost:9092
       group-id: bankaccConsumer
