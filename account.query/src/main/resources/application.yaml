@@ -9,8 +9,10 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:mysql://localhost:3306/bankAccount?createDatabaseIfNotExist=true
-    username: root
+#    url: jdbc:mysql://localhost:3306/bankAccount?createDatabaseIfNotExist=true
+#    username: root
+    url: jdbc:postgresql://localhost:5432/bankAccount
+    username: techbankRoot
     password: techbankRootPsw
   kafka:
     listener:
