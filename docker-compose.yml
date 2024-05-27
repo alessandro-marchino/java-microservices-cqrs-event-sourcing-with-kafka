@@ -8,6 +8,9 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - 2181:2181
+    volumes:
+      - "zookeeper_data:/var/lib/zookeeper/data"
+      - "zookeeper_log:/var/lib/zookeeper/log"
   kafka:
     image: confluentinc/cp-kafka:latest
     depends_on:
@@ -16,7 +19,6 @@ services:
       - 9092:9092
     volumes:
       - "kafka_data:/var/lib/kafka/data"
-      - "kafka_secrets:/etc/kafka/secrets"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
@@ -51,7 +53,8 @@ services:
 
 volumes:
   kafka_data:
-  kafka_secrets:
+  zookeeper_data:
+  zookeeper_log:
   mongo_data:
   mysql_data:
 
