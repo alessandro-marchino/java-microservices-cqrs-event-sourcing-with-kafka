@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AccountQueryHandler implements QueryHandler {
-	private AccountRepository accountRepository;
+	private final AccountRepository accountRepository;
 
 	@Override
 	public List<BaseEntity> handle(FindAllAccountsQuery query) {
