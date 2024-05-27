@@ -18,28 +18,28 @@ public class AccountEventConsumer implements EventConsumer {
 	private final EventHandler eventHandler;
 
 	@Override
-	@KafkaListener(topics = "AccountsOpenedEvent", groupId = "${spring.kafka.consumer.groupId")
+	@KafkaListener(topics = "AccountsOpenedEvent", groupId = "${spring.kafka.consumer.group-id}")
 	public void consume(AccountOpenedEvent event, Acknowledgment ack) {
 		eventHandler.on(event);
 		ack.acknowledge();
 	}
 
 	@Override
-	@KafkaListener(topics = "FundsDepositedEvent", groupId = "${spring.kafka.consumer.groupId")
+	@KafkaListener(topics = "FundsDepositedEvent", groupId = "${spring.kafka.consumer.group-id}")
 	public void consume(FundsDepositedEvent event, Acknowledgment ack) {
 		eventHandler.on(event);
 		ack.acknowledge();
 	}
 
 	@Override
-	@KafkaListener(topics = "FundsWithdrawnEvent", groupId = "${spring.kafka.consumer.groupId")
+	@KafkaListener(topics = "FundsWithdrawnEvent", groupId = "${spring.kafka.consumer.group-id}")
 	public void consume(FundsWithdrawnEvent event, Acknowledgment ack) {
 		eventHandler.on(event);
 		ack.acknowledge();
 	}
 
 	@Override
-	@KafkaListener(topics = "AccountClosedEvent", groupId = "${spring.kafka.consumer.groupId")
+	@KafkaListener(topics = "AccountClosedEvent", groupId = "${spring.kafka.consumer.group-id}")
 	public void consume(AccountClosedEvent event, Acknowledgment ack) {
 		eventHandler.on(event);
 		ack.acknowledge();
